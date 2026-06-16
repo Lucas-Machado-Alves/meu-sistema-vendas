@@ -163,8 +163,15 @@ export default function Filamentos() {
               return (
                 <div key={f.id} style={{ ...s.card, borderColor: baixo ? '#502a2a' : '#2a2a30' }}>
                   <div style={s.cardTop}>
-                    <span style={{ ...s.badge, background: cor + '22', color: cor, border: `1px solid ${cor}44` }}>{f.material}</span>
-                    <div style={s.cardTitle}>{f.cor}</div>
+                    {f.foto_url && (
+  <img 
+    src={f.foto_url} 
+    alt={f.cor}
+    style={{ width: '100%', height: 140, objectFit: 'cover', borderRadius: 8, marginBottom: '.75rem' }}
+  />
+)}
+<span style={{ ...s.badge, background: cor + '22', color: cor, border: `1px solid ${cor}44` }}>{f.material}</span>
+<div style={s.cardTitle}>{f.cor}</div>
                     <div style={s.cardSub}>Comprado em {fmtData(f.data_compra)} · {fmt(Number(f.valor))}</div>
                     <div style={s.progressBg}>
                       <div style={{ height: '100%', width: `${pct}%`, background: baixo ? '#f87171' : cor, borderRadius: 4, transition: 'width .3s' }} />
